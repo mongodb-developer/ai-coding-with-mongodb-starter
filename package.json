@@ -1,0 +1,10 @@
+{
+  "name": "ai-coding-with-mongodb-starter",
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Starter template for MongoDB-first AI coding with Claude Code.",
+  "license": "MIT",
+  "dependencies": {
+    "mongodb": "^6.13.0"
+  }
+}

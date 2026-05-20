@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "mongodb": {
+      "command": "mongodb-mcp-server",
+      "args": [],
+      "env": {
+        "MDB_MCP_CONNECTION_STRING": "mongodb+srv://USER:PASS@CLUSTER.mongodb.net/YOUR_DB_NAME"
+      }
+    }
+  }
+}
