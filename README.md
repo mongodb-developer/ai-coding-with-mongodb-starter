@@ -56,12 +56,9 @@ Inside Claude Code:
 
 That gives Claude Code seven MongoDB skills: schema design, natural language querying, query optimization, MCP setup, search with AI, connection configuration, and Atlas Stream Processing. Source at https://github.com/mongodb/agent-skills.
 
-### 7. Prompt away
-
+### 7. Start prompting
 ```
 Read CLAUDE.md and CONTEXT.md, then propose a MongoDB schema for this application.
 ```
 
-## Want the live workshop experience?
 
-The AI Coding with MongoDB Workshop walks you through these patterns end-to-end against three pre-built scenarios (financial portfolio tracker, retail catalog, healthcare clinic management). Materials at https://github.com/mongodb-developer/ai-coding-workshop.
