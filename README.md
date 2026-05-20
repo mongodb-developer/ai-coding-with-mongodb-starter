@@ -1,4 +1,4 @@
-# AI Coding with MongoDB: starter template
+# AI Coding with MongoDB: starter template for Claude Code
 
 This template gives you the same shape of project artifacts you built and used during the AI Coding with MongoDB Workshop. Clone it, customize four files, and Claude Code will use the same defaults in every prompt.
 
