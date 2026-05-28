@@ -8,7 +8,7 @@ You influence what Claude Code reaches for through, in decreasing order of stren
 
 1. **A `CLAUDE.md` in the project root.** The agent reads it on every prompt. This is the strongest lever.
 2. **Repo artifacts the agent reads first.** The `mongodb` driver in `package.json` (already here); no stray `prisma/schema.prisma` or `postgres` services in `docker-compose.yml`.
-3. **An MCP server wired to your database.** Lives at `.claude/mcp_servers.json`. Lets Claude Code talk to your actual MongoDB instance.
+3. **An MCP server wired to your database.** Lives at `.mcp.json` at the project root. Lets Claude Code talk to your actual MongoDB instance.
 4. **Domain skills.** Install the official MongoDB plugin with `/plugin install mongodb` from inside Claude Code.
 
 This template ships the first three. Step 6 below enables the fourth.
@@ -39,7 +39,7 @@ Fill in the four sections (Domain, Data sources, Access patterns, Constraints). 
 
 ### 5. Confirm the MCP wiring
 
-`.claude/mcp_servers.json` reads the connection string from your shell's `MONGODB_URI`, which you set in Step 2. No edits needed in the default case. If you'd rather hardcode the URI inline (not recommended; easy to commit by accident), replace `${MONGODB_URI}` in the file with your Atlas connection string.
+`.mcp.json` at the project root reads the connection string from your shell's `MONGODB_URI`, which you set in Step 2. No edits needed in the default case. The first time you launch Claude Code in this project, it asks you to approve this MCP server, which is the standard prompt for project-scoped MCP configs. If you'd rather hardcode the URI inline (not recommended; easy to commit by accident), replace `${MONGODB_URI}` in `.mcp.json` with your Atlas connection string.
 
 ### 6. Install the MongoDB plugin
 
