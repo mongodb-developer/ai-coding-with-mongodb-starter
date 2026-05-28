@@ -37,9 +37,9 @@ Open `CLAUDE.md` and replace `<your-db-name>` with the actual database name your
 
 Fill in the four sections (Domain, Data sources, Access patterns, Constraints). The agent uses this to reason about your schema before it proposes one. The more specific you are about access patterns, the better the schema you get back.
 
-### 5. Customize `.claude/mcp_servers.json`
+### 5. Confirm the MCP wiring
 
-Replace the placeholder connection string with your Atlas URI, or wire it to read from `$MONGODB_URI`.
+`.claude/mcp_servers.json` reads the connection string from your shell's `MONGODB_URI`, which you set in Step 2. No edits needed in the default case. If you'd rather hardcode the URI inline (not recommended; easy to commit by accident), replace `${MONGODB_URI}` in the file with your Atlas connection string.
 
 ### 6. Install the MongoDB plugin
 
@@ -60,6 +60,35 @@ That gives Claude Code seven MongoDB skills: schema design, natural language que
 ```
 Read CLAUDE.md and CONTEXT.md, then propose a MongoDB schema for this application.
 ```
+
+### 8. Scaffold an API
+
+This step assumes you've filled in `CONTEXT.md`'s access patterns section. The prompt below asks Claude Code to build endpoints around those patterns; if the section is empty, you'll get generic CRUD instead.
+
+Paste this:
+
+```
+Now build a working API on top of the schema you proposed.
+
+1. Use the MongoDB MCP server to create the collections in my database
+   and seed them with realistic sample data so I have something to
+   query.
+
+2. Scaffold an Express API in `server.js`. Use the official `mongodb`
+   driver (already in package.json), ESM imports (the project is
+   `"type": "module"`), and listen on port 3000.
+
+3. Add one endpoint per access pattern listed in CONTEXT.md. Include
+   at least one aggregation endpoint that answers an analytical
+   question for this domain.
+
+4. Add `express` to package.json and run `npm install`.
+
+Show me the route list and the seed-data plan before you write any
+code or run any MCP write operations.
+```
+
+Reading the plan before code lets you catch wrong sample-data assumptions or missing endpoints early. After you accept it, Claude Code creates the collections, writes the server, and starts it. The bonus below assumes this step ran and the server is on port 3000.
 
 ## Bonus: visualize what you build
 
