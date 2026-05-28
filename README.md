@@ -61,4 +61,34 @@ That gives Claude Code seven MongoDB skills: schema design, natural language que
 Read CLAUDE.md and CONTEXT.md, then propose a MongoDB schema for this application.
 ```
 
+## Bonus: visualize what you build
+
+Once you have a schema, a couple of endpoints, and an analytical query that returns interesting data, you are one prompt away from a working dashboard. The prompt below assumes you have at least one aggregation endpoint already in your API; if not, ask Claude Code to add one first (top-N by some field is a good starting point), then come back here.
+
+Paste this into Claude Code exactly as written:
+
+```
+Add a GET /dashboard route to my Express server that serves a single
+self-contained HTML page. The page should call the aggregation endpoint
+I added to this API (read the server file to find the route path and
+the response shape) and render the results as a small dashboard.
+
+Use vanilla HTML, CSS, and JavaScript only. No build tools, no npm
+installs, no external frameworks, no CDN links. Inline all CSS and
+JavaScript in the HTML file. Serve the HTML as a string from the
+route handler.
+
+Style it with MongoDB's brand colors:
+- forest green #00684A for primary elements
+- spring green #00ED64 for accents
+- charcoal #001E2B for text
+- white background
+
+Render summary numbers as cards at the top and any ranked or grouped
+data as a simple HTML/CSS bar chart. Make it look polished and ready
+to demo. Restart the server so Express picks up the new route.
+```
+
+Open `http://localhost:3000/dashboard` in your browser. The page should render with the data your aggregation returned. The leverage moment is in how little this prompt has to specify: the agent reads the existing server file, finds the route, infers the response shape, and writes the matching UI.
+
 
