@@ -8,3 +8,10 @@ This project uses MongoDB. Apply these conventions when writing code or making s
 - Schema style: document-native. Embed where read access patterns favor it. Use references when data is independently queried or grows unbounded. Avoid one-collection-per-source-table translation.
 - MCP: a MongoDB MCP Server is configured at `.mcp.json` at the project root. Prefer it for schema introspection and explain plans over inventing queries.
 - Domain context: see `CONTEXT.md` in this directory.
+
+## Git
+
+- Never push without an explicit instruction.
+- Prefer new commits over amends; don't amend pushed commits.
+- Commit messages are concise, active voice, no agent attribution by default.
+- Confirm before destructive operations (`push --force`, `reset --hard`, branch deletion).

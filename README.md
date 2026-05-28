@@ -120,4 +120,30 @@ to demo. Restart the server so Express picks up the new route.
 
 Open `http://localhost:3000/dashboard` in your browser. The page should render with the data your aggregation returned. The leverage moment is in how little this prompt has to specify: the agent reads the existing server file, finds the route, infers the response shape, and writes the matching UI.
 
+## Delegate your git workflow
+
+Claude Code can handle your routine git work too. The conventions for how it should behave around git live in `CLAUDE.md`: it won't push without asking, won't amend pushed commits, keeps messages concise, and confirms before anything destructive. Three example prompts you can lift verbatim. Read the diff or the message before you accept.
+
+**Stage and commit:**
+
+```
+Stage the changes I just made and commit them with a concise message
+describing the why, not the what. Don't push.
+```
+
+**Create a branch:**
+
+```
+Create a feature branch off main called feature/<short-name>, switch
+to it, and stage no changes yet. I'll tell you what's next.
+```
+
+**Open a PR:**
+
+```
+Push this branch to origin and open a PR. Title under 70 chars.
+Body should have a one-paragraph summary of what changed and why,
+plus a short test plan.
+```
+
 
