@@ -1,16 +1,24 @@
 # Project conventions
 
-This project uses MongoDB. Apply these conventions when writing code or making schema decisions:
+You are helping build a MongoDB application. Apply these conventions on every prompt.
 
-- Database: `<your-db-name>` (set this once; the agent should not derive a name from the domain)
-- Driver: official `mongodb` Node driver. Do not use Mongoose.
-- Connection: MongoDB Atlas. Read the connection string from the `MONGODB_URI` environment variable; never commit it. A free-forever M0 cluster is available at https://www.mongodb.com/cloud/atlas/register.
-- Schema style: document-native. Embed where read access patterns favor it. Use references when data is independently queried or grows unbounded. Avoid one-collection-per-source-table translation.
-- MCP: a MongoDB MCP Server is configured at `.mcp.json` at the project root. Prefer it for schema introspection and explain plans over inventing queries.
-- Domain context: see `CONTEXT.md` in this directory.
+## Stack
+- Use the official `mongodb` Node.js driver. Do NOT use Mongoose or any ODM.
+- The domain, data files, and access patterns are in `CONTEXT.md`. Read it
+  before proposing a schema.
+
+## Data modeling
+- Model document-native. Shape collections around the access patterns in
+  CONTEXT.md, not around the CSV files.
+
+## Environment
+- Connect to MongoDB Atlas. Read the connection string from the `MONGODB_URI`
+  environment variable; never commit it. The MCP server at `.mcp.json` is
+  already wired to it. Prefer the MCP server for schema introspection and
+  explain plans over inventing queries.
+- Use the database `<your-db-name>` exactly.
 
 ## Git
-
 - Never push without an explicit instruction.
 - Prefer new commits over amends; don't amend pushed commits.
 - Commit messages are concise, active voice, no agent attribution by default.
