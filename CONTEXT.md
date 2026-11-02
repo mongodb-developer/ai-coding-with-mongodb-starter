@@ -1,6 +1,6 @@
 # Project context
 
-Fill in each section before you start prompting Claude Code. The agent reads this file when reasoning about your data model, so the more specific you are, the better the schema proposals.
+Fill in each section before you start prompting the coding agent. The agent reads this file when reasoning about your data model, so the more specific you are, the better the schema proposals.
 
 ## Domain
 

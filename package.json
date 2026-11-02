@@ -2,9 +2,18 @@
   "name": "ai-coding-with-mongodb-starter",
   "version": "0.1.0",
   "type": "module",
-  "description": "Starter template for MongoDB-first AI coding with Claude Code.",
+  "description": "Starter template for MongoDB-first development with a coding agent.",
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js",
+    "scenario": "node scripts/select-scenario.js",
+    "test": "node --test tests/*.test.js"
+  },
   "license": "MIT",
   "dependencies": {
-    "mongodb": "^6.13.0"
+    "express": "^4.21.0",
+    "mongodb": "^6.13.0",
+    "csv-parse": "^5.6.0"
   }
 }

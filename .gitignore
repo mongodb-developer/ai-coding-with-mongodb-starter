@@ -6,3 +6,7 @@ node_modules/
 
 resources
 .idea
+.claude/settings.local.json
+.mcp.json
+samples/data/*/*.csv
+/data/*.csv
